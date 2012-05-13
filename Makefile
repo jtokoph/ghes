@@ -9,7 +9,8 @@ GREASEMONKEY_DIR = greasemonkey
 JQUERY_FILE = ${VENDOR_DIR}/jquery.js
 USERSCRIPT_FILE = ${GREASEMONKEY_DIR}/ghes.user.js
 
-MODULE_FILES = ${MODULES_DIR}/00demo.js
+MODULE_FILES = ${MODULES_DIR}/00demo.js \
+	${MODULES_DIR}/pullTags.js
 
 MODULES = ${CORE_DIR}/modules-base.js \
 	${MODULE_FILES}
