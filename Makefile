@@ -14,7 +14,7 @@ MODULE_FILES = ${MODULES_DIR}/00demo.js
 MODULES = ${CORE_DIR}/modules-base.js \
 	${MODULE_FILES}
 
-all: modules
+all: modules chrome
 
 modules:
 	@@echo "Building modules";
