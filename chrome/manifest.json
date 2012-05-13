@@ -1,0 +1,21 @@
+{
+    "name": "GitHub Enhancement Suite",
+    "version": "0.0.1",
+    "description": "GitHub Enhancement Suite",
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*.github.com/*",
+                "https://*.github.com/*"
+            ],
+            "js": ["jquery.js", "ghes.js"],
+            "run_at": "document_start"
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "history",
+        "http://*.github.com/*",
+        "https://*.github.com/*"
+    ]
+}
