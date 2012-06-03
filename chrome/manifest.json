@@ -9,9 +9,12 @@
                 "https://*.github.com/*"
             ],
             "js": ["jquery.js", "ghes.js"],
-            "run_at": "document_start"
+            "run_at": "document_end"
         }
     ],
+    "background": {
+        "page": "background.html"
+    },
     "permissions": [
         "tabs",
         "history",
