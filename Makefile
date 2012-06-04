@@ -2,6 +2,7 @@ LIB_DIR = lib
 CORE_DIR = ${LIB_DIR}/core
 VENDOR_DIR = ${LIB_DIR}/vendor
 MODULES_DIR = ${LIB_DIR}/modules
+ENV_DIR = ${LIB_DIR}/env
 
 CHROME_DIR = chrome
 GREASEMONKEY_DIR = greasemonkey
@@ -18,12 +19,23 @@ MODULES = ${CORE_DIR}/modules-base.js \
 	${MODULE_FILES}
 
 FILES = ${CORE_DIR}/userscript-header.js \
+	${LIB_DIR}/env.js \
 	${MODULES} \
 	${CORE_DIR}/core.js
 
-default: all
+default: dev
+
+dev: devconfig all
+
+release: prdconfig all
 
 all: userscript chrome
+
+devconfig:
+	@@cp ${ENV_DIR}/dev.js ${LIB_DIR}/env.js
+
+prdconfig:
+	@@cp ${ENV_DIR}/prd.js ${LIB_DIR}/env.js
 
 userscript:
 	@@echo "========================="
@@ -40,4 +52,4 @@ chrome: userscript
 	cp ${JQUERY_FILE} ${CHROME_DIR}/jquery.js
 
 clean:
-	rm ${USERSCRIPT_FILE} ${CHROME_DIR}/jquery.js ${CHROME_DIR}/ghes.js
+	rm ${USERSCRIPT_FILE} ${CHROME_DIR}/jquery.js ${CHROME_DIR}/ghes.js ${LIB_DIR}/env.js
